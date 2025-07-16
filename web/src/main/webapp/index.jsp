@@ -86,7 +86,7 @@
 
 
 
-    <form class="login-form" action="j_security_check" method="POST">
+    <form class="login-form" action="login" method="post">
         <input type="text" name="j_username" placeholder="Administrator Username" required autofocus>
         <input type="password" name="j_password" placeholder="Password" required>
         <button type="submit">Login</button>
