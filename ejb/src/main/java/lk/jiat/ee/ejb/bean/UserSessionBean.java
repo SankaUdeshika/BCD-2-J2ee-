@@ -9,7 +9,7 @@ import lk.jiat.ee.core.remote.UserService;
 @Stateless
 public class UserSessionBean implements UserService {
 
-    @PersistenceContext
+    @PersistenceContext(name = "APPPU")
     private EntityManager em;
 
 
@@ -19,8 +19,9 @@ public class UserSessionBean implements UserService {
     }
 
     @Override
-    public void getUserByEmail(String email) {
-
+    public User getUserByEmail(String email) {
+        User user =em.createNamedQuery("User.findByEmail", User.class).setParameter("email", email).getSingleResult();
+        return user;
     }
 
     @Override
@@ -37,5 +38,12 @@ public class UserSessionBean implements UserService {
     @Override
     public void deleteUser(int id) {
 
+    }
+
+    @Override
+    public boolean validate(String email, String password) {
+        User user = em.createNamedQuery("User.findByEmail", User.class).setParameter("email", email).getSingleResult();
+        System.out.println("UserPassword : " + user.getPassword());
+        return user != null && user.getPassword().equals(password);
     }
 }

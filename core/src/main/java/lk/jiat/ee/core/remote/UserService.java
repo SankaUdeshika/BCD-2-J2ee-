@@ -7,11 +7,11 @@ import lk.jiat.ee.core.model.User;
 public interface UserService {
 
     public void getUserById(int id);
-    public void getUserByEmail(String email);
+    public User getUserByEmail(String email);
 
     public void addUser(User user);
     public void updateUser(User user);
     public void deleteUser(int id);
-
+    boolean validate(String email, String password);
 
 }

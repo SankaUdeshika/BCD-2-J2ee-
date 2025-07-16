@@ -84,11 +84,19 @@
 <div class="login-container">
     <div class="logo">BANK ADMIN PORTAL</div>
 
+    <%
+        String error = request.getParameter("error");
+        if (error != null) {
+    %>
+    <p style="color:red;"><%= error %></p>
+    <%
+        }
+    %>
 
 
     <form class="login-form" action="login" method="post">
-        <input type="text" name="j_username" placeholder="Administrator Username" required autofocus>
-        <input type="password" name="j_password" placeholder="Password" required>
+        <input type="text" name="email" placeholder="Administrator Email" required autofocus>
+        <input type="password" name="password" placeholder="Password" required>
         <button type="submit">Login</button>
     </form>
 
