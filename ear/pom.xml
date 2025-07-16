@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>ear</artifactId>
-    <name>NationalBanking</name>
+    <name>ear</name>
     <packaging>ear</packaging>
 
 

@@ -26,8 +26,6 @@ public class Login extends HttpServlet {
     @Inject
     SecurityContext securityContext;
 
-    @EJB
-    UserService userService;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
