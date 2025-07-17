@@ -64,7 +64,14 @@ public class CustomerSessionBean implements CustomerService {
     }
 
     @Override
-    public void DeactivateCustomer(String customerId) {
-
+    public boolean deactivateCustomer(String customerId) {
+       try{
+           em.remove(em.createNamedQuery("Customer.findById", Customer.class).setParameter("cid", Integer.parseInt(customerId)).getSingleResult());
+           System.out.println("Deactivated Customer :- "+customerId);
+           return true;
+       }catch (Exception e){
+           e.printStackTrace();
+           return false;
+       }
     }
 }

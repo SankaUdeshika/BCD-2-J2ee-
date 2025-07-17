@@ -402,16 +402,22 @@
 
                     <c:forEach var="customer" items="${customerList}">
                         <tr>
-                            <td>${customer.cid}</td>
-                            <td>${customer.name}</td>
-                            <td>${customer.email}</td>
-                            <td>${customer.phone}</td>
-                            <td><span class="status-badge status-active">Active</span></td>
-                            <td>
-                                <button class="action-btn" title="Edit">✏️</button>
-                                <button class="action-btn" title="View">👁️</button>
-                                <button class="action-btn" title="Deactivate">❌</button>
-                            </td>
+
+                                <td>${customer.cid}</td>
+                                <td>${customer.name}</td>
+                                <td>${customer.email}</td>
+                                <td>${customer.phone}</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>
+                                    <button class="action-btn" title="Edit">✏️</button>
+                                    <button class="action-btn" title="View">👁️</button>
+                                    <form action="${pageContext.request.contextPath}/user/DeactivateCustomer" method="post">
+                                        <input type="hidden" name="id" value="${customer.cid}" />
+                                        <button type="submit" class="action-btn" title="Deactivate">❌</button>
+                                    </form>
+
+                                </td>
+
                         </tr>
                     </c:forEach>
 
@@ -419,42 +425,42 @@
 
 
 
-                    <tr>
-                        <td>CUST-1003</td>
-                        <td>Michael Brown</td>
-                        <td>m.brown@example.com</td>
-                        <td>+1 555-456-7890</td>
-                        <td><span class="status-badge status-inactive">Inactive</span></td>
-                        <td>
-                            <button class="action-btn" title="Edit">✏️</button>
-                            <button class="action-btn" title="View">👁️</button>
-                            <button class="action-btn" title="Activate">✅</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>CUST-1004</td>
-                        <td>Emily Davis</td>
-                        <td>emily.d@example.com</td>
-                        <td>+1 555-789-0123</td>
-                        <td><span class="status-badge status-active">Active</span></td>
-                        <td>
-                            <button class="action-btn" title="Edit">✏️</button>
-                            <button class="action-btn" title="View">👁️</button>
-                            <button class="action-btn" title="Deactivate">❌</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>CUST-1005</td>
-                        <td>Robert Wilson</td>
-                        <td>robert.w@example.com</td>
-                        <td>+1 555-234-5678</td>
-                        <td><span class="status-badge status-active">Active</span></td>
-                        <td>
-                            <button class="action-btn" title="Edit">✏️</button>
-                            <button class="action-btn" title="View">👁️</button>
-                            <button class="action-btn" title="Deactivate">❌</button>
-                        </td>
-                    </tr>
+<%--                    <tr>--%>
+<%--                        <td>CUST-1003</td>--%>
+<%--                        <td>Michael Brown</td>--%>
+<%--                        <td>m.brown@example.com</td>--%>
+<%--                        <td>+1 555-456-7890</td>--%>
+<%--                        <td><span class="status-badge status-inactive">Inactive</span></td>--%>
+<%--                        <td>--%>
+<%--                            <button class="action-btn" title="Edit">✏️</button>--%>
+<%--                            <button class="action-btn" title="View">👁️</button>--%>
+<%--                            <button class="action-btn" title="Activate">✅</button>--%>
+<%--                        </td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <td>CUST-1004</td>--%>
+<%--                        <td>Emily Davis</td>--%>
+<%--                        <td>emily.d@example.com</td>--%>
+<%--                        <td>+1 555-789-0123</td>--%>
+<%--                        <td><span class="status-badge status-active">Active</span></td>--%>
+<%--                        <td>--%>
+<%--                            <button class="action-btn" title="Edit">✏️</button>--%>
+<%--                            <button class="action-btn" title="View">👁️</button>--%>
+<%--                            <button class="action-btn" title="Deactivate">❌</button>--%>
+<%--                        </td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <td>CUST-1005</td>--%>
+<%--                        <td>Robert Wilson</td>--%>
+<%--                        <td>robert.w@example.com</td>--%>
+<%--                        <td>+1 555-234-5678</td>--%>
+<%--                        <td><span class="status-badge status-active">Active</span></td>--%>
+<%--                        <td>--%>
+<%--                            <button class="action-btn" title="Edit">✏️</button>--%>
+<%--                            <button class="action-btn" title="View">👁️</button>--%>
+<%--                            <button class="action-btn" title="Deactivate">❌</button>--%>
+<%--                        </td>--%>
+<%--                    </tr>--%>
                     </tbody>
                 </table>
 

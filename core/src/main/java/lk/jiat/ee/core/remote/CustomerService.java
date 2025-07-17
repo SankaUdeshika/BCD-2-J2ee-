@@ -15,6 +15,6 @@ public interface CustomerService {
     public boolean saveCustomer(Customer customer);
     public void updateCustomer(Customer customer);
     public void deleteCustomer(String customerId);
-    public void DeactivateCustomer(String customerId);
+    public boolean deactivateCustomer(String customerId);
 
 }

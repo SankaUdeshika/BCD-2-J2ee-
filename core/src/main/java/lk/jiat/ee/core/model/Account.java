@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 @NamedQueries({
         @NamedQuery(name = "Account.findByAccountNo" , query = "SELECT a FROM Account a WHERE a.accountNumber=:accountNo")
 })
-@Cacheable(value = true)
+@Cacheable(value = false)
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

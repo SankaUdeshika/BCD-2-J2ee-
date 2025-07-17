@@ -115,10 +115,10 @@
     </div>
 
     <div class="action-buttons">
-        <a href="${pageContext.request.contextPath}/admin/dashboard.jsp" class="btn btn-primary">
+        <a href="${pageContext.request.contextPath}/home.jsp" class="btn btn-primary">
             Go to Dashboard
         </a>
-        <a href="${pageContext.request.contextPath}/index.jsp/" class="btn btn-secondary">
+        <a href="${pageContext.request.contextPath}/logout" class="btn btn-secondary">
             Home Page
         </a>
     </div>
