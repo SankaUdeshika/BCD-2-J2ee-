@@ -40,7 +40,7 @@ public class AuthMechanism implements HttpAuthenticationMechanism {
 
         if(context.isProtected() && context.getCallerPrincipal() == null) {
             try {
-                response.sendRedirect(request.getContextPath() + "/login.jsp");
+                response.sendRedirect(request.getContextPath() + "/index.jsp");
             } catch (Exception e) {
                 throw new RuntimeException("Redirect failed", e);
             }
