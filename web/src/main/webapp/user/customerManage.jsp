@@ -1,4 +1,8 @@
-<%--
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="javax.naming.InitialContext" %>
+<%@ page import="lk.jiat.ee.core.remote.CustomerService" %>
+<%@ page import="java.util.List" %>
+<%@ page import="lk.jiat.ee.core.model.Customer" %><%--
   Created by IntelliJ IDEA.
   User: sanka
   Date: 7/17/2025
@@ -383,30 +387,38 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>CUST-1001</td>
-                        <td>John Smith</td>
-                        <td>john.smith@example.com</td>
-                        <td>+1 555-123-4567</td>
-                        <td><span class="status-badge status-active">Active</span></td>
-                        <td>
-                            <button class="action-btn" title="Edit">✏️</button>
-                            <button class="action-btn" title="View">👁️</button>
-                            <button class="action-btn" title="Deactivate">❌</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>CUST-1002</td>
-                        <td>Sarah Johnson</td>
-                        <td>sarah.j@example.com</td>
-                        <td>+1 555-987-6543</td>
-                        <td><span class="status-badge status-active">Active</span></td>
-                        <td>
-                            <button class="action-btn" title="Edit">✏️</button>
-                            <button class="action-btn" title="View">👁️</button>
-                            <button class="action-btn" title="Deactivate">❌</button>
-                        </td>
-                    </tr>
+
+                    <%
+                        try{
+                            InitialContext ic = new InitialContext();
+                            CustomerService customerService = (CustomerService) ic.lookup("lk.jiat.ee.core.remote.CustomerService");
+                            List<Customer> customerList = customerService.getAllCustomers();
+                            pageContext.setAttribute("customerList",customerList);
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
+                    %>
+
+
+                    <c:forEach var="customer" items="${customerList}">
+                        <tr>
+                            <td>${customer.cid}</td>
+                            <td>${customer.name}</td>
+                            <td>${customer.email}</td>
+                            <td>${customer.phone}</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                            <td>
+                                <button class="action-btn" title="Edit">✏️</button>
+                                <button class="action-btn" title="View">👁️</button>
+                                <button class="action-btn" title="Deactivate">❌</button>
+                            </td>
+                        </tr>
+                    </c:forEach>
+
+
+
+
+
                     <tr>
                         <td>CUST-1003</td>
                         <td>Michael Brown</td>

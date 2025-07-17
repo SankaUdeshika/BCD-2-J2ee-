@@ -10,6 +10,7 @@ import java.util.List;
 @NamedQueries({
         @NamedQuery(name = "Customer.findById",query = "select c from Customer c where c.cid =:id"),
         @NamedQuery(name = "Customer.findByEmail",query = "select c from Customer c where c.email =:email"),
+        @NamedQuery(name = "Customer.getAllCustomers",query = "select c from Customer c "),
 })
 @Cacheable(value = true)
 public class Customer implements java.io.Serializable {

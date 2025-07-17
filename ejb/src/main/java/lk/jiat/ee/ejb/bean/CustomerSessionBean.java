@@ -9,6 +9,8 @@ import lk.jiat.ee.core.model.Customer;
 import lk.jiat.ee.core.model.User;
 import lk.jiat.ee.core.remote.CustomerService;
 
+import java.util.List;
+
 @Stateless
 public class CustomerSessionBean implements CustomerService {
 
@@ -34,6 +36,11 @@ public class CustomerSessionBean implements CustomerService {
     }
 
     @Override
+    public List<Customer> getAllCustomers() {
+        return  em.createNamedQuery("Customer.getAllCustomers", Customer.class).getResultList();
+    }
+
+    @Override
     public boolean saveCustomer(Customer customer) {
       Customer customer1 =   getCustomerByEmail(customer.getEmail());
       if(customer1 != null){
@@ -53,6 +60,11 @@ public class CustomerSessionBean implements CustomerService {
 
     @Override
     public void deleteCustomer(String customerId) {
+
+    }
+
+    @Override
+    public void DeactivateCustomer(String customerId) {
 
     }
 }
