@@ -44,6 +44,7 @@ public class Login extends HttpServlet {
         if(status == AuthenticationStatus.SUCCESS) {
             resp.sendRedirect(req.getContextPath() + "/home.jsp");
         }else{
+//            resp.sendError(500,"Error Message"); || throw ServletException("Authentication Error);
             resp.sendRedirect(req.getContextPath() + "/index.jsp?error=Please+try+again+later");
         }
     }
