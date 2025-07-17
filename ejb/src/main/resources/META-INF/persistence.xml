@@ -6,6 +6,7 @@
         <class>lk.jiat.ee.core.model.User</class>
         <class>lk.jiat.ee.core.model.Customer</class>
         <class>lk.jiat.ee.core.model.Account</class>
+        <class>lk.jiat.ee.core.model.LogHistory</class>
         <properties>
             <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
         </properties>

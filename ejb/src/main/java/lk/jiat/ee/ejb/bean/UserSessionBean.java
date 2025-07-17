@@ -1,10 +1,15 @@
 package lk.jiat.ee.ejb.bean;
 
+import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import lk.jiat.ee.core.model.LogHistory;
+import lk.jiat.ee.core.model.LogType;
 import lk.jiat.ee.core.model.User;
 import lk.jiat.ee.core.remote.UserService;
+
+import java.util.Date;
 
 @Stateless
 public class UserSessionBean implements UserService {
