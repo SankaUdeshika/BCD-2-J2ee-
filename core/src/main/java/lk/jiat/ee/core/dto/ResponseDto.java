@@ -1,4 +1,4 @@
-package lk.jiat.ee.core;
+package lk.jiat.ee.core.dto;
 
 import java.io.Serializable;
 

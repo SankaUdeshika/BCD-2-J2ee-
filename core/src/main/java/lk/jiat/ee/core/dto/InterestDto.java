@@ -1,4 +1,12 @@
 package lk.jiat.ee.core.dto;
 
-public class InterestDto {
+import java.io.Serializable;
+
+public class InterestDto implements Serializable {
+    public  double interestRate = 0.005; //5%
+
+    public double getIntrestRate(){
+        return interestRate;
+    }
+
 }

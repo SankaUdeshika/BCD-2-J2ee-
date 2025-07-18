@@ -6,9 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lk.jiat.ee.core.ResponseDto;
-import lk.jiat.ee.core.model.Account;
-import lk.jiat.ee.core.model.Customer;
+import lk.jiat.ee.core.dto.ResponseDto;
 import lk.jiat.ee.core.remote.AccountService;
 import lk.jiat.ee.core.remote.CustomerService;
 

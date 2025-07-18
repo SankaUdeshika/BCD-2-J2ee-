@@ -1,10 +1,9 @@
 package lk.jiat.ee.ejb.bean;
 
-import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import lk.jiat.ee.core.ResponseDto;
+import lk.jiat.ee.core.dto.ResponseDto;
 import lk.jiat.ee.core.model.Account;
 import lk.jiat.ee.core.model.Transaction;
 import lk.jiat.ee.core.remote.TransferService;

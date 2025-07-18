@@ -1,7 +1,7 @@
 package lk.jiat.ee.core.remote;
 
 import jakarta.ejb.Remote;
-import lk.jiat.ee.core.ResponseDto;
+import lk.jiat.ee.core.dto.ResponseDto;
 import lk.jiat.ee.core.model.Account;
 
 @Remote

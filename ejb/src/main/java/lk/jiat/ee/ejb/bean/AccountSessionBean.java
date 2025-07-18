@@ -4,12 +4,11 @@ import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import lk.jiat.ee.core.ResponseDto;
+import lk.jiat.ee.core.dto.ResponseDto;
 import lk.jiat.ee.core.model.Account;
 import lk.jiat.ee.core.model.Customer;
 import lk.jiat.ee.core.remote.AccountService;
 import lk.jiat.ee.core.remote.CustomerService;
-import lk.jiat.ee.core.remote.UserService;
 
 import java.util.List;
 import java.util.Random;
@@ -35,6 +34,11 @@ public class AccountSessionBean implements AccountService {
             return null;
 
         }
+    }
+
+    @Override
+    public List<Account> getAccountList() {
+       return em.createNamedQuery("Account.findByAccount", Account.class).getResultList();
     }
 
     @Override
