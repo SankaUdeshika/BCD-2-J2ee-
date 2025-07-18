@@ -1,8 +1,7 @@
 package lk.jiat.ee.ejb.bean;
 
-import jakarta.ejb.EJB;
-import jakarta.ejb.Schedule;
-import jakarta.ejb.Stateless;
+import jakarta.annotation.Resource;
+import jakarta.ejb.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import lk.jiat.ee.core.dto.InterestDto;
@@ -38,7 +37,7 @@ public class TimerSessionBean {
         List<Account> accountList = accountService.getAccountList();
         for (Account account : accountList) {
             double interestValue = account.getBalance() * interest / 365;
-            account.setBalance(account.getBalance() + interest);
+            account.setBalance(account.getBalance() + interestValue);
             em.merge(account);
 
         }

@@ -279,6 +279,7 @@
                 <button type="button" class="btn btn-secondary" onclick="window.history.back()">Cancel</button>
                 <button type="submit" class="btn btn-primary" id="transferBtn">Transfer Money</button>
             </div>
+            <a href="scheduleFundTransfer.jsp" >Shedule Fund Transfer</a>
             </form>
 
         </div>

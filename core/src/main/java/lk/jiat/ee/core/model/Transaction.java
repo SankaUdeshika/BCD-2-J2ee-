@@ -15,6 +15,7 @@ public class Transaction implements Serializable {
     private int transaction_id;
 
     private LocalDateTime transaction_date;
+    private boolean isScheduled = false;
 
     @ManyToOne
     @JoinColumn(name = "to_account")
@@ -78,4 +79,14 @@ public class Transaction implements Serializable {
     public void setAmount(double amount) {
         this.amount = amount;
     }
+
+    public boolean isScheduled() {
+        return isScheduled;
+    }
+
+    public void setScheduled(boolean scheduled) {
+        isScheduled = scheduled;
+    }
+
+
 }
