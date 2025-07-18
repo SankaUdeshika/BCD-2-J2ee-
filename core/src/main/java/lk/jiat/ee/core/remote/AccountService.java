@@ -9,6 +9,6 @@ import java.util.List;
 
 @Remote
 public interface AccountService {
-    public Account getAccount(int id);
+    public Account getAccountById(int id);
     public ResponseDto addAccount(String customerId, String customerName, double balance);
 }

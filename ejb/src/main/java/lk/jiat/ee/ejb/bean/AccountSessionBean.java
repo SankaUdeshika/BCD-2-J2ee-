@@ -27,9 +27,14 @@ public class AccountSessionBean implements AccountService {
     AccountService accountService;
 
     @Override
-    public Account getAccount(int id) {
+    public Account getAccountById(int id) {
+        try{
+            return em.createNamedQuery("Account.findByAccountNo", Account.class).setParameter("accountNo", id).getSingleResult();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
 
-        return null;
+        }
     }
 
     @Override
@@ -51,9 +56,10 @@ public class AccountSessionBean implements AccountService {
                     accountNumber =100000+ random.nextInt(90000000);
                     System.out.println(String.valueOf(accountNumber));
 
-                }while (accountService.getAccount(accountNumber) != null);
+                }while (accountService.getAccountById(accountNumber) != null);
 
                 Account account = new Account(accountNumber,balance,customer);
+                account.setAccountNumber(accountNumber);
                 em.persist(account);
 
                 responseDto.setSuccess(true);

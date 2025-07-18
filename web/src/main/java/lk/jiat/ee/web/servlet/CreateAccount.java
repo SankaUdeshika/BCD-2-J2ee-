@@ -33,5 +33,11 @@ public class CreateAccount extends HttpServlet {
         ResponseDto responseDto =  accountService.addAccount(customer_Id,name,balance);
         System.out.println(responseDto.getMessage());
 
+        if(responseDto.isSuccess()){
+            resp.sendRedirect(req.getContextPath()+"/home.jsp");
+        }else{
+            throw new ServletException(responseDto.getMessage());
+        }
+
     }
 }

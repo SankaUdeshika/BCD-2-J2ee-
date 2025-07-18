@@ -2,6 +2,8 @@ package lk.jiat.ee.core.model;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "account")
 @NamedQueries({
@@ -9,7 +11,7 @@ import jakarta.persistence.*;
         @NamedQuery(name = "Account.findByAccount" , query = "SELECT a FROM Account a ")
 })
 @Cacheable(value = false)
-public class Account {
+public class Account implements Serializable {
     @Id
     private Integer accountNumber;
     private  double balance;

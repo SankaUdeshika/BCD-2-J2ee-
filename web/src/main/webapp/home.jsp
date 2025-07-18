@@ -214,7 +214,7 @@
                 <a href="user/createAccounts.jsp">Accounts</a>
             </li>
             <li class="nav-item">
-                <a href="user/dipositMoney.jsp">Transactions</a>
+                <a href="user/transaction.jsp">Transactions</a>
             </li>
             <li class="nav-item">
                 <a href="user/customerManage.jsp">Customers</a>

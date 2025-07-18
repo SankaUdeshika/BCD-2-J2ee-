@@ -248,25 +248,22 @@
         <div class="transfer-form-container">
             <h2 class="form-title">Money Transfer</h2>
 
+            <form action="transfer" method="post">
             <!-- Source Account Information -->
             <div class="form-group">
                 <label for="fromAccount">From Account</label>
-                <input type="text" id="fromAccount" name="from_accountNumber"
+                <input type="text" id="fromAccount" name="fromAccount"
                        placeholder="Enter From account number" required>
             </div>
 
             <!-- Destination Account Information -->
             <div class="form-group">
                 <label for="toAccount">To Account</label>
-                <input type="text" id="toAccount" name="to_accountNumber"
+                <input type="text" id="toAccount" name="toAcccount"
                        placeholder="Enter destination account number" required>
             </div>
 
-            <!-- Account Verification (would be filled by AJAX in real implementation) -->
-            <div id="destinationAccountInfo" class="account-info" style="display: none;">
-                <div class="account-info-label">Destination Account:</div>
-                <div class="account-info-value" id="destinationAccountDetails"></div>
-            </div>
+
 
             <!-- Transfer Amount -->
             <div class="form-group">
@@ -282,6 +279,8 @@
                 <button type="button" class="btn btn-secondary" onclick="window.history.back()">Cancel</button>
                 <button type="submit" class="btn btn-primary" id="transferBtn">Transfer Money</button>
             </div>
+            </form>
+
         </div>
     </div>
 </div>

@@ -93,7 +93,6 @@
         }
     %>
 
-
     <form class="login-form" action="login" method="post">
         <input type="text" name="email" placeholder="Administrator Email" required autofocus>
         <input type="password" name="password" placeholder="Password" required>
