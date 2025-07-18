@@ -220,7 +220,7 @@
                 <a href="user/customerManage.jsp">Customers</a>
             </li>
             <li class="nav-item">
-                <a href="#">Loans</a>
+                <a href="admin/checkLogs.jsp">Logs</a>
             </li>
             <li class="nav-item">
                 <a href="#">Reports</a>
