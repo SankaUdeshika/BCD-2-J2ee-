@@ -211,7 +211,7 @@
                 <a href="#">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a href="#">Accounts</a>
+                <a href="createAccounts.jsp">Accounts</a>
             </li>
             <li class="nav-item">
                 <a href="#">Transactions</a>

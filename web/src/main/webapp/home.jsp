@@ -211,10 +211,10 @@
                 <a href="#">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a href="#">Accounts</a>
+                <a href="user/createAccounts.jsp">Accounts</a>
             </li>
             <li class="nav-item">
-                <a href="#">Transactions</a>
+                <a href="user/dipositMoney.jsp">Transactions</a>
             </li>
             <li class="nav-item">
                 <a href="user/customerManage.jsp">Customers</a>

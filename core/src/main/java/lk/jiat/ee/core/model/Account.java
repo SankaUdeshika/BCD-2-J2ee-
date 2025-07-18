@@ -5,16 +5,27 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "account")
 @NamedQueries({
-        @NamedQuery(name = "Account.findByAccountNo" , query = "SELECT a FROM Account a WHERE a.accountNumber=:accountNo")
+        @NamedQuery(name = "Account.findByAccountNo" , query = "SELECT a FROM Account a WHERE a.accountNumber=:accountNo"),
+        @NamedQuery(name = "Account.findByAccount" , query = "SELECT a FROM Account a ")
 })
 @Cacheable(value = false)
 public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer accountNumber;
     private  double balance;
     @ManyToOne (cascade =  CascadeType.ALL)
     private Customer customer;
+
+    public Account() {
+
+    }
+
+    public Account(Integer accountNumber,double balance, Customer customer) {
+        this.balance = balance;
+        this.customer = customer;
+        accountNumber = accountNumber;
+    }
+
 
     public Integer getAccountNumber() {
         return accountNumber;

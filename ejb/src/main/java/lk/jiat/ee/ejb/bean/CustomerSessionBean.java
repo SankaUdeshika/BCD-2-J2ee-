@@ -19,8 +19,13 @@ public class CustomerSessionBean implements CustomerService {
 
     @Override
     public Customer getCustomerById(String customerId) {
-
-        return null;
+        try {
+            return em.createNamedQuery("Customer.findById", Customer.class)
+                    .setParameter("cid", Integer.parseInt(customerId))
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
     @Override
