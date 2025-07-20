@@ -1,7 +1,10 @@
 package lk.jiat.ee.ejb.bean;
 
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
+import jakarta.ejb.TransactionAttribute;
+import jakarta.ejb.TransactionAttributeType;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import lk.jiat.ee.core.model.LogHistory;
@@ -17,10 +20,17 @@ public class UserSessionBean implements UserService {
     @PersistenceContext(name = "APPPU")
     private EntityManager em;
 
+    @Override
+    @RolesAllowed({"ADMIN"})
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    public void deleteUser(int id) {
+        User user =  getUserById(id);
+        em.remove(user);
+    }
 
     @Override
-    public void getUserById(int id) {
-
+    public User getUserById(int id) {
+           return em.find(User.class, id);
     }
 
     @Override
@@ -30,20 +40,19 @@ public class UserSessionBean implements UserService {
     }
 
     @Override
+    @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
     public void addUser(User user) {
         em.persist(user);
         System.out.println(user.getName());
     }
 
     @Override
+    @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
     public void updateUser(User user) {
-
+        em.merge(user);
     }
 
-    @Override
-    public void deleteUser(int id) {
 
-    }
 
     @Override
     public boolean validate(String email, String password) {

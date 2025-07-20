@@ -6,7 +6,7 @@ import lk.jiat.ee.core.model.User;
 @Remote
 public interface UserService {
 
-    public void getUserById(int id);
+    public User getUserById(int id);
     public User getUserByEmail(String email);
 
     public void addUser(User user);

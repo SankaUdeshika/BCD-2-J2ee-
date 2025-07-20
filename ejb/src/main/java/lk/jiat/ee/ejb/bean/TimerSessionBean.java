@@ -25,9 +25,6 @@ public class TimerSessionBean {
 
     @EJB
     private LogService logService;
-
-
-
     @Schedule(hour = "0", minute = "0",second = "0",persistent = false)
     public void applyDailyInterest() {
         System.out.println("Apply daily interest");

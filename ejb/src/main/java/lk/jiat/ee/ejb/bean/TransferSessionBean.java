@@ -2,6 +2,8 @@ package lk.jiat.ee.ejb.bean;
 
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
+import jakarta.ejb.TransactionAttribute;
+import jakarta.ejb.TransactionAttributeType;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import lk.jiat.ee.core.dto.ResponseDto;
@@ -17,21 +19,16 @@ import java.util.Date;
 
 @Stateless
 public class TransferSessionBean implements TransferService {
-
-
     @PersistenceContext
     private EntityManager em;
-
-
     @EJB
     private LogService logService;
-
     @Override
+    @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
     public ResponseDto transfer(Account from, Account to, double amount) {
         ResponseDto responseDto = new ResponseDto();
         responseDto.setSuccess(false);
         responseDto.setMessage("Transfer UnSuccessful");
-
         //        get from account validatation
         double curruntFromAccountBallance = from.getBalance();
 
@@ -52,8 +49,6 @@ public class TransferSessionBean implements TransferService {
             LogType type = LogType.TRANSACTION;
             LogHistory log = new LogHistory("Make Transactions", now, type);
             logService.addLog(log);
-
-
             responseDto.setSuccess(true);
             responseDto.setMessage("Transfer Successful");
         }

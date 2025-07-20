@@ -2,6 +2,8 @@ package lk.jiat.ee.ejb.bean;
 
 import jakarta.ejb.Singleton;
 import jakarta.ejb.Stateless;
+import jakarta.ejb.TransactionAttribute;
+import jakarta.ejb.TransactionAttributeType;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import lk.jiat.ee.core.model.LogHistory;
@@ -16,10 +18,10 @@ public class LogSessionBean implements LogService {
     private EntityManager em;
 
     @Override
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void addLog(LogHistory log) {
         em.persist(log);
         System.out.println("Log Added: ");
-
     }
 
     @Override

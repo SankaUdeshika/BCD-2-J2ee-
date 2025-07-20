@@ -19,22 +19,17 @@ import java.util.Random;
 
 @Stateless
 public class ScheduleTransferSessionBean implements SchduleTransactionService {
-
     @PersistenceContext
     private EntityManager em;
 
     @EJB
     private AccountService accountService;
-
     @EJB
     private TransferService transferService;
-
     @EJB
     private LogService logService;
-
     @Resource
     private TimerService timerService;
-
     @Override
     public void oneTimeAction(String fromAccount, String toAccount, String amount, String recurrence, String endOption, String startDate) {
         Account fromAccountObject = accountService.getAccountById(Integer.parseInt(fromAccount));
